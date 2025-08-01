@@ -1,23 +1,23 @@
 {
   "name": "calendar-events-app",
   "version": "1.0.0",
-  "description": "Aplicación de gestión de eventos de calendario",
-  "main": "index.js",
+  "description": "Aplicación de gestión de eventos con calendario",
+  "main": "backend/server.js",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd backend && npm run dev",
     "client": "cd frontend && npm run dev",
     "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "build": "cd frontend && npm run build"
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "start:prod": "cd backend && NODE_ENV=production npm start",
+    "deploy": "npm run install-all && npm run build && npm run start:prod"
   },
-  "keywords": [
-    "calendar",
-    "events",
-    "appointments"
-  ],
-  "author": "Jose",
-  "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }
